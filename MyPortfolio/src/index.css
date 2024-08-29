@@ -65,6 +65,10 @@ body {
     display: inline-block;
   }
   
+  video::-webkit-media-controls {
+    display: none;
+  }
+  
   .inline-paragraph::after {
     content: "";
     display: inline-block;
