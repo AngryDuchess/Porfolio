@@ -72,7 +72,7 @@ export default function NavBar() {
   return (
     <>
       <header className="w-screen backdrop-blur-sm xl:sticky z-20 bottom-0 fixed xl:top-0 px-4 bg-portfolioWhite backdrop-filter bg-opacity-50 pb-8 xl:pb-0 xl:pt-8">
-        <nav className="bg-gray-900 backdrop-filter backdrop-blur-sm nav-shadow bg-opacity-50 border-b border-gray-600 mx-0 md:mx-auto px-2 py-2 max-w-3xl rounded-full">
+        <nav className="bg-gray-900 backdrop-filter backdrop-blur-sm nav-shadow bg-opacity-60 border-b border-gray-600 mx-0 md:mx-auto px-2 py-2 max-w-3xl rounded-full">
           <div className="flex items-center justify-between">
             <a href="/">
               <img src="/favicon.svg" alt="favicon" />
