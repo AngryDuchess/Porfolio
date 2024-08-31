@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchProjects } from "../lib/api";
 import ImageLoader from "../loader";
-import {  ArrowLeft2, ArrowRight2, Refresh } from "iconsax-react";
+import { ArrowLeft2, ArrowRight2, Refresh } from "iconsax-react";
 
 export default function About() {
   const [currentStory, setCurrentStory] = useState(0);
@@ -23,7 +23,7 @@ export default function About() {
 
   useEffect(() => {
     if (fetchedAbout.length > 0 && fetchedAbout[currentStory]) {
-      setIsImage(checkIsImage(fetchedAbout[currentStory].image)); 
+      setIsImage(checkIsImage(fetchedAbout[currentStory].image));
     }
   }, [fetchedAbout, currentStory]);
 
@@ -50,7 +50,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="text-portfolioTextDark w-screen pt-16 pb-24 xl:py-20 px-4"
+      className="text-portfolioTextDark w-screen pt-16 pb-32 xl:py-20 px-4"
     >
       <div className="flex gap-8 flex-col max-w-3xl mx-auto justify-center items-center">
         <p className="text-3xl xl:text-[40px] font-bold">About Me 😉</p>
@@ -70,46 +70,48 @@ export default function About() {
                   />
                 ) : (
                   <video
-                    src={fetchedAbout[currentStory].image}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-auto"
+                    playsInline
                     autoPlay
+                    muted
                     loop
-                  />
+                  >
+                    <source
+                      src={fetchedAbout[currentStory].image}
+                      type="video/mp4"
+                    ></source>
+                  </video>
                 )}
               </>
             )}
           </div>
-          <div className=" text-left w-full mb-4 leading-8 font-medium flex flex-col justify-between items-start">
+          <div className=" text-left w-full mb-4 leading-8 font-medium flex flex-col justify-between ">
             <p>{fetchedAbout[currentStory].text}</p>
-            <div className="flex gap-4 flex-row-reverse">
-
-            
-            {currentStory === fetchedAbout.length - 1 ? (
-              <button
-              className="flex items-center gap-2 leading-7 bg-portfolioTextDark text-shadow border-b-2 border-black hover:border-none button-secondary-shadow text-[#EBEBEB] px-3 py-1 rounded-full text-sm italic min-h-10" 
-                onClick={handleStartOver}
-              >
-                <Refresh size={14} />
-                Start over
-              </button>
-            ) : (
-              <button
-                className="px-2 py-2 bg-portfolioTextDark rounded-full text-shadow border-black hover:border-none button-secondary-shadow  hover:bg-[#313131]"
-                onClick={handleNextStory}
-              >
-                <ArrowRight2 size={24} color="#ffffff"/>
-              </button>
-            )}
-            {currentStory > 0 && (
-
-              <button
-              className="px-2 py-2 bg-portfolioTextLight hover:bg-portfolioTextDark rounded-full"
-              onClick={handlePrevStory}
-              
-              >
-             <ArrowLeft2 size={24} color="#ffffff"/>
-            </button>
-            )}
+            <div className="flex gap-4 flex-row-reverse items-end">
+              {currentStory === fetchedAbout.length - 1 ? (
+                <button
+                  className="flex items-center gap-2 leading-7 bg-portfolioTextDark text-shadow border-b-2 border-black hover:border-none button-secondary-shadow text-[#EBEBEB] px-3 py-1 rounded-full text-sm italic min-h-10"
+                  onClick={handleStartOver}
+                >
+                  <Refresh size={14} />
+                  Start over
+                </button>
+              ) : (
+                <button
+                  className="px-2 py-2 bg-portfolioTextDark rounded-full text-shadow border-black hover:border-none button-secondary-shadow  hover:bg-[#313131]"
+                  onClick={handleNextStory}
+                >
+                  <ArrowRight2 size={24} color="#ffffff" />
+                </button>
+              )}
+              {currentStory > 0 && (
+                <button
+                  className="px-2 py-2 bg-portfolioTextLight hover:bg-portfolioTextDark rounded-full"
+                  onClick={handlePrevStory}
+                >
+                  <ArrowLeft2 size={24} color="#ffffff" />
+                </button>
+              )}
             </div>
           </div>
         </div>
