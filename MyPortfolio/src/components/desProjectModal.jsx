@@ -1,11 +1,21 @@
+import React ,{ useState,useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { CloseCircle } from "iconsax-react";
 import PropTypes from "prop-types";
-import { useNavigate } from 'react-router-dom';
 
 
 export default function DesProjectModal({ isOpen, onClose, projectTitle, projectSubtitle, liveProject, projectDescription,projectTags, thumbnailGifUrl, case_study }) {
-  const navigate = useNavigate();
   if (!isOpen) return null;
+  const navigate = useNavigate();
+  const [isImage,setIsImage] = useState(true)
+
+  const checkIsImage= (url) => {
+    return /\.(jpeg|jpg|gif|png|svg)$/i.test(url)
+  };
+
+  useEffect(()=> {
+    setIsImage(checkIsImage(thumbnailGifUrl));
+  },[])
   
   const handleClick = () => {
     navigate(`/case-study/${case_study.id}`, { state: { caseStudyData: case_study } });
@@ -13,18 +23,24 @@ export default function DesProjectModal({ isOpen, onClose, projectTitle, project
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black backdrop-blur-sm bg-opacity-50 z-50 px-4">
-      <div className="relative bg-portfolioWhite max-w-5xl h-3/4 w-full rounded-3xl  overflow-hidden">
-        <div className="absolute grid grid-cols-1 xl:grid-cols-2 h-full max-h-full">
-          <div className="h-60 md:h-auto">
-            <img 
-            src={thumbnailGifUrl}
-            className=" w-full h-full object-cover" />
+      <div className="relative bg-portfolioWhite max-w-5xl h-3/4 lg:h-auto w-full rounded-3xl  overflow-hidden">
+        <div className="grid grid-cols-1 xl:grid-cols-2 h-full max-h-full pt-14 pb-4 lg:px-4 ">
+          <div className="h-full lg:rounded-2xl ">
+            {isImage ? (
+              <img 
+              src={thumbnailGifUrl}
+              className=" w-full h-full object-cover lg:rounded-2xl" />
+            ):(
+              <video className="object-cover w-full h-full lg:rounded-2xl" playsInline autoPlay muted loop >
+                <source src={thumbnailGifUrl} type="video/mp4"></source>
+              </video>
+            )}
           </div>
-          <div className="pb-4 pt-8 lg:pt-20 px-3 xl:px-8 text-left text-portfolioTextLight overflow-y-scroll">
+          <div className="pb-4 pt-8 px-3 xl:px-8 text-left text-portfolioTextLight overflow-y-scroll">
             <CloseCircle
               onClick={onClose}
               className="cursor-pointer absolute top-5 right-5 icon-hover"
-              size="32"
+              size="24"
               color="#656560"
             />
             <div className="flex flex-col gap-12">
