@@ -9,7 +9,7 @@ import radio from "../assets/radio.png";
 
 export default function HeroSection() {
   return (
-    <section className="text-portfolioTextDark w-screen py-16 xl:py-20 px-4">
+    <section id="hero" className="text-portfolioTextDark w-screen py-16 xl:py-20 px-4">
       <div className="flex gap-4 flex-col max-w-3xl mx-auto">
         <div className="flex flex-col gap-4">
           {/* <div className="flex flex-row gap-4 xl:justify-between items-center flex-wrap xl:flex-nowrap"> */}
