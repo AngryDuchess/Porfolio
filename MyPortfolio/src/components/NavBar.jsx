@@ -142,10 +142,14 @@ export default function NavBar() {
                   </ul>
                 </div>
               )}
+            </div>
+          </div>
+        </nav>
+      </header>
               {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
                   <iframe
-                    src="https://calendar.google.com/calendar/appointments/schedules/..."
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3YpGo952D33Z2kyqkNX5WF5hiJRRsUE5f5W_SrXFzSulxri4Ea4KXa9kh7YziL5yXZv3ig6ZZc?gv=true"
                     style={{ border: 0 }}
                     width="100%"
                     height="600"
@@ -153,10 +157,6 @@ export default function NavBar() {
                   />
                 </Modal>
               )}
-            </div>
-          </div>
-        </nav>
-      </header>
     </>
   );
 }
