@@ -70,9 +70,9 @@ export default function Works() {
         <>
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-              {Array.from({length: 4}).map((_, index) =>
-            <ImageLoader key={index} />
-              )}
+              {Array.from({ length: 4 }).map((_, index) => (
+                <ImageLoader key={index} />
+              ))}
             </div>
           ) : (
             <>
