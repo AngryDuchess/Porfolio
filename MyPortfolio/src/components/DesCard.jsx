@@ -21,7 +21,7 @@ import { useEffect } from "react";
   }, [isModalOpen])
 
     const { title, description, id, tags,thumbnailUrl,thumbnailGifUrl, case_study, subTitle, liveProject } = project;
-  return (
+    return (
     <>
       <div
         key={id}
@@ -39,7 +39,7 @@ import { useEffect } from "react";
           </div>
         )}
       </div>
-      <DesProjectModal isOpen={isModalOpen} onClose={closeModal} projectTitle={project.title} projectDescription={project.description[0]?.children[0].text} projectTags={project.tags?.projectTags} liveProject={liveProject} thumbnailGifUrl={project.thumbnailGifUrl} case_study={case_study} />
+      <DesProjectModal isOpen={isModalOpen} onClose={closeModal} projectTitle={project.title} projectDescription={project.description} projectTags={project.tags?.projectTags} liveProject={liveProject} thumbnailGifUrl={project.thumbnailGifUrl} case_study={case_study} />
     </>
   );
 }
