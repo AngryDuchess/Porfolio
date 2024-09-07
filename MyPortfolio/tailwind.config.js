@@ -17,8 +17,13 @@ export default {
         "portfolioTextLight": "#656560",
         "portfolioStroke": "#CAD0D8",
         "portfolioWhite": "#ffffff",
-        "portfolioGradient": "linear-gradient(90deg,#5FD4FF 0%, #0056B8 100% )"
-      }
+        "portfolioHover": '#0056B8',
+      },
+      backgroundImage: {
+        // 'portfolioGradient': 'linear-gradient(90deg, #79B8FF 0%, #BDEDFF 54%)',
+        'portfolioGradient': '#79B8FF',
+
+      },
     },
   },
   plugins: [],
