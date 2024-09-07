@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import BlockRendererClient from "../../lib/blockrenderclient";
-// import { BlocksRenderer, BlocksContent } from "@strapi/blocks-react-renderer";
-
 
 
 const Casestudy = () => {
   const { state } = useLocation();
   const caseStudyData = state?.caseStudyData;
   const richText = caseStudyData.caseStudyBody
-  console.log(caseStudyData.caseStudyBody)
-  // const [process, setProcess] = useState([]);
-
-  // useEffect(() => {
-  //   if (caseStudyData?.designProcess?.process) {
-  //     console.log(caseStudyData?.designProcess?.process)
-  //     setProcess(caseStudyData.designProcess.process);
-  //   }
-  // }, [caseStudyData]);
+ 
 
   if (!caseStudyData) {
     return <p>No case study data available</p>;
