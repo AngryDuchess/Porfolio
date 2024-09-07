@@ -362,6 +362,187 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutAbout extends Schema.SingleType {
+  collectionName: 'abouts';
+  info: {
+    singularName: 'about';
+    pluralName: 'abouts';
+    displayName: 'About';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    story: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCaseStudyCaseStudy extends Schema.CollectionType {
+  collectionName: 'case_studies';
+  info: {
+    singularName: 'case-study';
+    pluralName: 'case-studies';
+    displayName: 'Case studies';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    about: Attribute.Text;
+    thumbnail: Attribute.String;
+    projectDuration: Attribute.String;
+    platform: Attribute.String;
+    role: Attribute.String;
+    clientName: Attribute.String;
+    clientInfo: Attribute.Text;
+    finalMockups: Attribute.String;
+    thanksImage: Attribute.String;
+    caseStudyBody: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::case-study.case-study',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::case-study.case-study',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDesignProjectDesignProject extends Schema.CollectionType {
+  collectionName: 'design_projects';
+  info: {
+    singularName: 'design-project';
+    pluralName: 'design-projects';
+    displayName: 'Design Projects';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subTitle: Attribute.Text;
+    description: Attribute.Blocks;
+    liveProject: Attribute.String;
+    tags: Attribute.JSON;
+    case_study: Attribute.Relation<
+      'api::design-project.design-project',
+      'oneToOne',
+      'api::case-study.case-study'
+    >;
+    thumbnailUrl: Attribute.String;
+    thumbnailGifUrl: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::design-project.design-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::design-project.design-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDevelopmentProjectDevelopmentProject
+  extends Schema.CollectionType {
+  collectionName: 'development_projects';
+  info: {
+    singularName: 'development-project';
+    pluralName: 'development-projects';
+    displayName: 'Development Projects';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subTitle: Attribute.Text;
+    description: Attribute.Blocks;
+    liveProject: Attribute.Text;
+    tags: Attribute.JSON;
+    thumbnailUrl: Attribute.String;
+    thumbnailGifUrl: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::development-project.development-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::development-project.development-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTechStackTechStack extends Schema.SingleType {
+  collectionName: 'tech_stacks';
+  info: {
+    singularName: 'tech-stack';
+    pluralName: 'tech-stacks';
+    displayName: 'Tech-stack';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logos: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tech-stack.tech-stack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tech-stack.tech-stack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,161 +969,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutAbout extends Schema.SingleType {
-  collectionName: 'abouts';
-  info: {
-    singularName: 'about';
-    pluralName: 'abouts';
-    displayName: 'About';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    story: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCaseStudyCaseStudy extends Schema.CollectionType {
-  collectionName: 'case_studies';
-  info: {
-    singularName: 'case-study';
-    pluralName: 'case-studies';
-    displayName: 'Case studies';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    about: Attribute.Text;
-    problemStatement: Attribute.Text;
-    thumbnail: Attribute.String;
-    projectDuration: Attribute.String;
-    platform: Attribute.String;
-    role: Attribute.String;
-    clientName: Attribute.String;
-    clientInfo: Attribute.Text;
-    clientImage: Attribute.String;
-    solution: Attribute.Text;
-    finalMockups: Attribute.String;
-    thanksImage: Attribute.String;
-    conclusion: Attribute.Text;
-    designProcess: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::case-study.case-study',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::case-study.case-study',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDesignProjectDesignProject extends Schema.CollectionType {
-  collectionName: 'design_projects';
-  info: {
-    singularName: 'design-project';
-    pluralName: 'design-projects';
-    displayName: 'Design Projects';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    subTitle: Attribute.Text;
-    description: Attribute.Blocks;
-    liveProject: Attribute.String;
-    tags: Attribute.JSON;
-    case_study: Attribute.Relation<
-      'api::design-project.design-project',
-      'oneToOne',
-      'api::case-study.case-study'
-    >;
-    thumbnailUrl: Attribute.String;
-    thumbnailGifUrl: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::design-project.design-project',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::design-project.design-project',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDevelopmentProjectDevelopmentProject
-  extends Schema.CollectionType {
-  collectionName: 'development_projects';
-  info: {
-    singularName: 'development-project';
-    pluralName: 'development-projects';
-    displayName: 'Development Projects';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    subTitle: Attribute.Text;
-    description: Attribute.Blocks;
-    liveProject: Attribute.Text;
-    tags: Attribute.JSON;
-    thumbnailUrl: Attribute.String;
-    thumbnailGifUrl: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::development-project.development-project',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::development-project.development-project',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -953,6 +979,11 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::about.about': ApiAboutAbout;
+      'api::case-study.case-study': ApiCaseStudyCaseStudy;
+      'api::design-project.design-project': ApiDesignProjectDesignProject;
+      'api::development-project.development-project': ApiDevelopmentProjectDevelopmentProject;
+      'api::tech-stack.tech-stack': ApiTechStackTechStack;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -961,10 +992,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::about.about': ApiAboutAbout;
-      'api::case-study.case-study': ApiCaseStudyCaseStudy;
-      'api::design-project.design-project': ApiDesignProjectDesignProject;
-      'api::development-project.development-project': ApiDevelopmentProjectDevelopmentProject;
     }
   }
 }
