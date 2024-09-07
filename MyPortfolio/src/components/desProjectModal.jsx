@@ -1,6 +1,7 @@
 import React ,{ useState,useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { CloseCircle } from "iconsax-react";
+import BlockRendererClient from "../lib/blockrenderclient";
 import PropTypes from "prop-types";
 
 
@@ -48,9 +49,8 @@ export default function DesProjectModal({ isOpen, onClose, projectTitle, project
                 <p className="font-bold text-left text-portfolioTextDark">
                   {projectTitle.toUpperCase()}
                 </p>
-                <p>
-                  {projectDescription}
-                </p>
+                <BlockRendererClient content={projectDescription}/>
+               
               </div>
               <div className="flex flex-wrap gap-2">
                 {case_study && Object.keys(case_study).length > 0 ? (
