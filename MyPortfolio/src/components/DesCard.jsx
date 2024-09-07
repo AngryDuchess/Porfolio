@@ -8,8 +8,7 @@ import { useEffect } from "react";
     const [isModalOpen, setModalOpen] = useState(false);
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
-    const baseUrl = "https://hamida-mahama.onrender.com";
-  // const baseUrl = "http://localhost:1337";
+    
   useEffect(() => {
     if(isModalOpen) {
       document.body.classList.add('body-no-scroll');
