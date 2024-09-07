@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "tech_stacks",
+  "info": {
+    "singularName": "tech-stack",
+    "pluralName": "tech-stacks",
+    "displayName": "Tech-stack"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logos": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

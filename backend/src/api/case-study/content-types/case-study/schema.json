@@ -18,9 +18,6 @@
     "about": {
       "type": "text"
     },
-    "problemStatement": {
-      "type": "text"
-    },
     "thumbnail": {
       "type": "string"
     },
@@ -39,23 +36,14 @@
     "clientInfo": {
       "type": "text"
     },
-    "clientImage": {
-      "type": "string"
-    },
-    "solution": {
-      "type": "text"
-    },
     "finalMockups": {
       "type": "string"
     },
     "thanksImage": {
       "type": "string"
     },
-    "conclusion": {
-      "type": "text"
-    },
-    "designProcess": {
-      "type": "json"
+    "caseStudyBody": {
+      "type": "blocks"
     }
   }
 }
