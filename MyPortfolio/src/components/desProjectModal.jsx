@@ -24,7 +24,7 @@ export default function DesProjectModal({ isOpen, onClose, projectTitle, project
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black backdrop-blur-sm bg-opacity-50 z-50 px-4">
-      <div className="relative bg-portfolioWhite max-w-5xl h-3/4 lg:h-auto w-full rounded-3xl  overflow-hidden">
+      <div className="relative bg-portfolioWhite max-w-7xl h-3/4 lg:h-4/5 w-full rounded-3xl  overflow-hidden">
         <div className="grid grid-cols-1 xl:grid-cols-2 h-full max-h-full pt-14 pb-4 lg:px-4 ">
           <div className="h-full lg:rounded-2xl ">
             {isImage ? (
@@ -58,7 +58,7 @@ export default function DesProjectModal({ isOpen, onClose, projectTitle, project
                    Case Study 
                   </button>
                 ) : (
-                  <span className="p-2 bg-red-100 text-[#FF6335] rounded-lg text-[12px]">
+                  <span className="w-full p-2 bg-red-100 text-[#FF6335] rounded-lg text-[12px]">
                     <em className="inline-para text-[#FF6335] ">Welp! You got me..</em>
                     <em> ..A case study is coming soon. Stay tuned</em>
                     </span>
