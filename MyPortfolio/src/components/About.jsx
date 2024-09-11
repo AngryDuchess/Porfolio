@@ -70,6 +70,7 @@ export default function About() {
                   />
                 ) : (
                   <video
+                  key={fetchedAbout[currentStory].image}
                     className="object-cover w-full h-auto"
                     playsInline
                     autoPlay
@@ -86,7 +87,7 @@ export default function About() {
             )}
           </div>
           <div className=" text-left w-full mb-4 leading-8 font-medium flex flex-col justify-between ">
-            <p>{fetchedAbout[currentStory].text}</p>
+            <p className={`${currentStory === 0 ? "inline-paragraph":""}`}>{fetchedAbout[currentStory].text}</p>
             <div className="flex gap-4 flex-row-reverse items-end">
               {currentStory === fetchedAbout.length - 1 ? (
                 <button
