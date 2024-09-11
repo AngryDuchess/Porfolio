@@ -23,7 +23,7 @@ export default function TechStack() {
           The tools and technologies i build with, streamline my workflow, and
           bring my designs to life
         </p>
-        <div className="flex gap-2 flex-wrap w-full items-start">
+        <div className="flex gap-2 flex-wrap w-full items-center lg:items-start justify-center">
           {logos.map((logo) => (
             <div className="flex items-center rounded-3xl w-24 h-24 hover:bg-portfolioHover hover:bg-opacity-5 justify-center">
               <img
