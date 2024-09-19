@@ -1,7 +1,7 @@
+import React,{ useEffect, useState } from "react";
 import { CloseCircle } from "iconsax-react";
+import BlockRendererClient from "../lib/blockrenderclient";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
-
 
 export default function DevProjectModal({ isOpen, onClose, projectTitle, projectSubtitle, liveProject, projectDescription,projectTags, thumbnailGifUrl}) {
     if (!isOpen) return null;
@@ -40,15 +40,12 @@ export default function DevProjectModal({ isOpen, onClose, projectTitle, project
           <div className="pb-4 pt-8  px-3 xl:px-8 text-left text-portfolioTextLight overflow-y-scroll">
             
             <div className="flex flex-col gap-12">
-              <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3">
                 <p className="font-bold text-left text-portfolioTextDark">
-                  
                   {projectTitle.toUpperCase()}
                 </p>
-                <p>
-                  {projectDescription}
-                  
-                </p>
+                <BlockRendererClient content={projectDescription}/>
+               
               </div>
              
               <div className="flex items-start">

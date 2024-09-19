@@ -42,7 +42,7 @@ import { useEffect } from "react";
           </div>
         )}
       </div>
-      <DevProjectModal isOpen={isModalOpen} onClose={closeModal} projectTitle={project.title} projectDescription={project.description[0]?.children[0].text} projectTags={project.tags?.projectTags} liveProject={liveProject} thumbnailGifUrl={project.thumbnailGifUrl} />
+      <DevProjectModal isOpen={isModalOpen} onClose={closeModal} projectTitle={project.title} projectDescription={project.description} projectTags={project.tags?.projectTags} liveProject={liveProject} thumbnailGifUrl={project.thumbnailGifUrl} />
     </>
   );
 }
