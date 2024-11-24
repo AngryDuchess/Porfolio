@@ -2,20 +2,27 @@ import axios from "axios";
 import { flattenAttributes } from "./utils/utils";
 
 
-
+const baseUrls = [
+  "https://hamida-mahama.onrender.com/",
+  "https://cms-0qf1.onrender.com/",
+  // "http://localhost:1337",
+];
 const fetchProjects = async (path) => {
-  const baseUrl = "https://hamida-mahama.onrender.com/";
-  // const baseUrl = "http://localhost:1337";
+  for (const baseUrl of baseUrls){
+    const url = new URL(path, baseUrl);
+    try {
+      console.log(`Attempting to fetch from ${url.href}`);
 
-  const url = new URL(path, baseUrl);
+      const res = await axios.get(url.href);
+      const flattenedData = flattenAttributes(res.data);
+      console.log(`Successfully fetched from ${url.href}`);
 
-  try {
-    const res = await axios.get(url.href);
-    const flattenedData = flattenAttributes(res.data);
-    return flattenedData;
-  } catch (err) {
-    console.error(err);
+      return flattenedData;
+    } catch (err) {
+      console.error(`Failed to fetch ${baseUrl}`, err);
+    }
   }
+  throw new Error("All base URLs failed to fetch data.");
 };
 
 

@@ -4,14 +4,10 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 
   export default function DevCard({ project }) {
-  
-
-    
     const [isModalOpen, setModalOpen] = useState(false);
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
-    const baseUrl = "https://hamida-mahama.onrender.com";
-//   const baseUrl = "http://localhost:1337";
+  
   useEffect(() => {
     if(isModalOpen) {
       document.body.classList.add('body-no-scroll');
